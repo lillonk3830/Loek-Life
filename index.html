@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loekscoolewebsite ✨</title>
+  <style>
+    /* --- 90s/00s vibe --- */
+    body {
+      margin: 0;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      background: #000000 url("sterretje.gif");
+      background-attachment: fixed;
+    
+      /* Tip: vervang bovenstaande URL door een echte tiled GIF/PNG background */
+      color: #da60bc;
+    }
+
+    /* “Centered table layout” look */
+    .page {
+      width: 760px;                 /* classic fixed width */
+      margin: 20px auto;
+      border: 4px ridge #c0c0c0;     /* bevel look */
+      background: #111;
+      box-shadow: 0 0 0 6px #333;
+    }
+
+    .topbar {
+      background: linear-gradient(#0033ff, #000099);
+      color: #fff;
+      padding: 10px 12px;
+      border-bottom: 4px groove #c0c0c0;
+    }
+
+    .topbar h1 {
+      margin: 0;
+      font-family: "Comic Sans MS", "Comic Sans", Verdana, sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    .blink {
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      to { visibility: hidden; }
+    }
+
+    /* Layout: left nav + main content */
+    .content {
+      display: table; /* old-school table vibe */
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .nav, .main {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .nav {
+      width: 190px;
+      background: #0a0a0a;
+      border-right: 4px groove #c0c0c0;
+      padding: 10px;
+    }
+
+    .nav .box {
+      border: 3px outset #c0c0c0;
+      background: #222;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    .nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .nav a:hover { text-decoration: underline; }
+
+    .btn {
+      display: block;
+      margin: 6px 0;
+      padding: 6px 8px;
+      background: linear-gradient(#e6e6e6, #9a9a9a);
+      color: #000;
+      border: 2px outset #fff;
+      text-align: left;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn:active { border: 2px inset #fff; }
+
+    .main {
+      padding: 12px;
+      background: #101010;
+    }
+
+    .marquee {
+      background: #ff00ff;
+      color: #000;
+      font-weight: bold;
+      padding: 6px 8px;
+      border: 3px outset #fff;
+      margin-bottom: 10px;
+    }
+
+    /* Use <marquee> if you want the authentic tag; here we mimic it with CSS animation */
+    .marquee span {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 12s linear infinite;
+    }
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to   { transform: translateX(-100%); }
+    }
+
+    .panel {
+      border: 3px ridge #c0c0c0;
+      background: #1b1b1b;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #ffff00;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .divider {
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        #00ff66 0 10px,
+        #000 10px 20px
+      );
+      margin: 10px 0;
+    }
+
+    .footer {
+      font-size: 11px;
+      color: #ccc;
+      padding: 10px 12px;
+      border-top: 4px groove #c0c0c0;
+      background: #000;
+    }
+
+    .badge-row img {
+      image-rendering: pixelated;
+      height: 31px;
+      margin: 4px 4px 0 0;
+      border: 1px solid #444;
+    }
+
+    .counter {
+      font-family: "Courier New", monospace;
+      background: #000;
+      border: 2px inset #c0c0c0;
+      color: #00ff66;
+      padding: 2px 6px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <h1>Loek Life <span class="blink">!!!</span></h1>
+      <div style="font-size:12px; margin-top:4px;">
+        ✉️ email: <u>Loek3830@gmail.com</u> &nbsp; | &nbsp; Discord: lonk_
+
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="nav">
+        <div class="box">
+          <div style="color:#ffff00; font-weight:bold; margin-bottom:6px;">Navigatie</div>
+          <button class="btn" onclick="gotoSection('home')">🏠 Home</button>
+          <button class="btn" onclick="gotoSection('about')">😎 Over mij</button>
+          <button class="btn" onclick="gotoSection('links')">🔗 Cool Links</button>
+          <button class="btn" onclick="gotoSection('Muziek')"> Muziek</button>
+          <button class="btn" onclick="gotoSection('Berichten')">📖 Berichten</button>
+          <button class="btn" onclick="gotoSection('downloads')">💾 Downloads</button>
+        </div>
+
+        <div class="box">
+          <div style="color:#ffff00; font-weight:bold; margin-bottom:6px;">Site status</div>
+          <div>🚧 <b>UNDER CONSTRUCTION</b></div>
+          <div class="divider"></div>
+          <div>Visitors:</div>
+          <div class="counter" id="counter">000123</div>
+        </div>
+
+        <div class="box">
+          <div style="color:#ffff00; font-weight:bold; margin-bottom:6px;">Badges</div>
+          <div class="badge-row">
+            <!-- Vervang door echte 88x31 gifs als je wil -->
+            <img src="https://dummyimage.com/88x31/000/00ff66.png&text=HTML" alt="HTML" />
+            <img src="https://dummyimage.com/88x31/000/00ffff.png&text=CSS" alt="CSS" />
+            <img src="https://dummyimage.com/88x31/ff00ff/000.png&text=BEST+VIEWED" alt="Best viewed" />
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="marquee"><span>🔥 WELKOM!!! Check mijn nieuwe pagina’s! Zet je speakers aan! 🔥</span></div>
+
+        <div class="panel" id="home">
+          <h2>Home</h2>
+          <p>
+            Dit is mijn persoonlijke homepage in <b>90s/00s style</b>. Hier komen updates, random thoughts,
+            en natuurlijk een guestbook.
+          </p>
+          <div class="divider"></div>
+          <p>
+            <b>Update:</b> Ik ben bezig met een supercoole “Downloads” sectie. Stay tuned!!
+          </p>
+        </div>
+
+        <div class="panel" id="about">
+          <h2>Over mij</h2>
+          <ul>
+            <li>🎧 Muziek / games / reizen</li>
+            <li>🧠 Random feitjes: ik hou van ouderwetse web vibes</li>
+            <li>🖥️ PC specs: Pentium III (oké grapje)</li>
+          </ul>
+        </div>
+
+        <div class="panel" id="links">
+          <h2>Cool Links</h2>
+          <ul>
+            <li><a href="#" onclick="alert('Deze link is nog under construction 😅'); return false;">My favorite site</a></li>
+            <li><a href="#" onclick="alert('Coming soon!'); return false;">Free wallpapers</a></li>
+            <li><a href="#" onclick="alert('Guestbook first 😄'); return false;">Top 10 MIDI tracks</a></li>
+          </ul>
+        </div>
+        
+        
+        <div class="panel" id="Muziek">
+          <h2>Muziek</h2>
+          <div class="panel" id="Albumvandemaand">
+          <p>Album van de maand</p>
+         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/3pmNLRyXB6nnXYditvGTZD?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+         <img src="apu-apustaja-apu.gif" alt="Dancing PePe GIF">
+        </div>
+
+          </div>
+
+
+       <div class="panel" id="guestbook">
+          <h2>Guestbook</h2>
+          <p>Laat een bericht achter (fake form, maar ziet er wel retro uit):</p>
+          <form onsubmit="fakeSubmit(event)">
+            <div style="margin-bottom:6px;">
+              <label>Naam:</label><br />
+              <input type="text" style="width: 95%;" />
+            </div>
+            <div style="margin-bottom:6px;">
+              <label>Bericht:</label><br />
+              <textarea style="width:95%; height:80px;"></textarea>
+            </div>
+            <button class="btn" type="submit">Verstuur</button>
+          </form>
+          <div id="guestbookResult" style="margin-top:8px;"></div>
+        </div>
+
+        <div class="panel" id="downloads">
+          <h2>Downloads</h2>
+          <ul>
+            <li>📄 <a href="#" onclick="alert('Download start… (not really)'); return false;">My cool TXT file</a></li>
+            <li>🎵 <a href="#" onclick="alert('MIDI loading…'); return false;">Retro MIDI pack</a></li>
+            <li>🖼️ <a href="#" onclick="alert('Wallpaper coming soon'); return false;">Wallpapers 800x600</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2001–2004 MijnSite™ | Best viewed in 1024x768 | <span class="blink">No frames?</span> |
+      <span style="float:right;">Made with ❤️ and nostalgia</span>
+    </div>
+  </div>
+
+  <script>
+    function gotoSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function fakeSubmit(e) {
+      e.preventDefault();
+      const el = document.getElementById("guestbookResult");
+      el.innerHTML = "<b>Thanks!</b> Je bericht is (nep) opgeslagen in het guestbook 😄";
+    }
+
+    // Tiny fake visitor counter increment (for the vibe)
+    (function () {
+      const c = document.getElementById("counter");
+      let n = parseInt(c.textContent, 10);
+      setInterval(() => {
+        n += 1;
+        c.textContent = String(n).padStart(6, "0");
+      }, 2500);
+    })();
+  </script>
+</body>
+</html>
